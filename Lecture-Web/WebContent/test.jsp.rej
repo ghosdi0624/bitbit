@@ -1,9 +1,0 @@
-diff a/Lecture-Web/WebContent/test.jsp b/Lecture-Web/WebContent/test.jsp	(rejected hunks)
-@@ -17,5 +17,6 @@
- <c:set var="num"><fmt:formatNumber pattern="00">1</fmt:formatNumber></c:set>
- 		
- 	num : ${ num }
-+	수정했습니다.
- </body>
- </html>
-\ No newline at end of file
