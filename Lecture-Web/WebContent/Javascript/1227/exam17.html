@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	window.onload = function() {
+//		document.body.innerHTML = '<h1>JavaScript</h1>';
+//		document.body.innerHTML += '<h1>Header2</h1>';
+		var header1 = document.getElementById("Header1");
+		alert(header1.innerHTML);
+		header1.innerHTML = 'JavaScript';
+	}
+</script>
+</head>
+<body>
+	<h1 id = "Header1">Header1</h1>
+	<h1>Header2</h1>
+</body>
+</html>

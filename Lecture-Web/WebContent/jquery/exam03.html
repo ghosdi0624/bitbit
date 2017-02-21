@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		alert("ready");
+//		$('ul li').hide();				//ul밑의 li태그를 숨기기
+//		$('ul li:first').hide();		//ul밑의 li태그 총 7개중 첫번째꺼 숨기기
+//		$('ul li:first-child').hide();	//각 ul밑의 li태그 첫번째꺼 모두 숨기기
+		$('ul li:last-child').hide();	//각 ul밑의 li태그 마지막꺼 모두 숨기기
+		
+	});
+</script>
+</head>
+<body>
+	<h1>동물종류</h1>
+		<ul>
+			<li>호랑이</li>
+			<li>토끼</li>
+			<li>코끼리</li>
+		</ul>
+	<h1>음식종류</h1>
+		<ul>
+			<li>떡볶이</li>
+			<li>볶음밥</li>
+			<li>김치찌개</li>
+			<li>수제비</li>
+		</ul>
+</body>
+</html>

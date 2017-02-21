@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var num = 0;
+	function clickButton() {
+		var click = document.getElementById("click");
+		click.innerHTML = ++num;
+	}
+	
+</script>
+</head>
+<body>
+	<!-- 버튼을 클릭할때 마다 숫자 증가 -->
+	<span id="click">0</span>번클릭<button onclick="clickButton()">클릭</button>
+</body>
+</html>

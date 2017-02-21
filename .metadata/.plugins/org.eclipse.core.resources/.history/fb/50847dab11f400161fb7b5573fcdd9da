@@ -1,0 +1,169 @@
+package kr.co.bit.reserve.controller;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import kr.co.bit.hotel.vo.RoomVO;
+import kr.co.bit.member.vo.MemberVO;
+import kr.co.bit.member.vo.reserve.MemberReserveVO;
+import kr.co.bit.reserve.service.ReserveService;
+
+@Controller
+public class ReserveController {
+	
+	@Autowired
+	private ReserveService service;
+	
+	@RequestMapping("/reserve/reserveform.do")
+	public String reserveForm(HttpServletRequest request, Model model){
+		
+		String hotelName = request.getParameter("hotelName");
+		
+		List<RoomVO> list = service.reserveForm(hotelName);
+		List<MemberReserveVO> memberList = service.memberReserve(hotelName);
+		
+		model.addAttribute("hotelName", hotelName);
+		model.addAttribute("list", list);
+		model.addAttribute("memberList", memberList);
+		
+		
+		//달력 날짜 표기
+		Calendar cal = Calendar.getInstance(); //현재 시스템이 가지고 있는 날짜 데이터 가지고 오기
+
+		int y = cal.get(Calendar.YEAR);
+		int m = cal.get(Calendar.MONTH) + 1;
+		int d = cal.get(Calendar.DATE);
+
+		String _y = request.getParameter("y");
+		String _m = request.getParameter("m");
+
+		if (_y != null)
+			y = Integer.parseInt(_y);
+		if (_m != null)
+			m = Integer.parseInt(_m);
+
+		//y년 m월 1일의 요일
+		cal.set(y, m - 1, 1);
+		y = cal.get(Calendar.YEAR);
+		m = cal.get(Calendar.MONTH) + 1;
+
+		int w = cal.get(Calendar.DAY_OF_WEEK); //1(일)~7(토) => 일요일일때 w에 1. 메소드를 외우면 된다.
+		int last = cal.getActualMaximum(Calendar.DATE);
+		String ystr = Integer.toString(y);
+		
+		model.addAttribute("y", y);
+		model.addAttribute("m", m);
+		model.addAttribute("w", w);
+		model.addAttribute("last", last);
+		model.addAttribute("ystr", ystr);
+		
+		return "reserve/reserveform";
+	}
+	
+	@RequestMapping("/reserve/reserve.do")
+	public String reserve(HttpServletRequest request, Model model){
+		
+		String hotelName = request.getParameter("hotelName");
+		String roomName = request.getParameter("roomName");
+		String checkIn = request.getParameter("checkIn");
+		
+		RoomVO roomVO = service.reserve(roomName);
+		List<MemberReserveVO> memberList = service.reserveByRoom(roomName);
+		List<RoomVO> list = service.reserveForm(hotelName);
+		
+		String[] checkInArr = checkIn.split("-");
+		int checkInYear = Integer.parseInt(checkInArr[0]);
+		int checkInMonth = Integer.parseInt(checkInArr[1]);
+		int checkInDay = Integer.parseInt(checkInArr[2]);
+		Calendar checkInCal = Calendar.getInstance();
+		checkInCal.set(checkInYear, checkInMonth, checkInDay);
+		long check = checkInCal.getTime().getTime();
+		int checkDay = (int) (check/(1000*60*60*24));
+		
+		int num = 5;
+		for(MemberReserveVO vo : memberList){
+			
+			String[] arr = vo.getCheckIn().split("-");
+			int year = Integer.parseInt(arr[0]);
+			int month = Integer.parseInt(arr[1]);
+			int day = Integer.parseInt(arr[2]);
+			Calendar cal = Calendar.getInstance();
+			cal.set(year, month, day);
+			long data = cal.getTime().getTime();
+			int dataDay = (int) (data/(1000*60*60*24));
+		
+			if(checkDay<dataDay){
+				if(dataDay-checkDay < 5){
+					if(dataDay-checkDay < num){
+						num = dataDay-checkDay;
+					}	
+				}
+			}
+		}
+	
+		model.addAttribute("num", num);
+		
+		model.addAttribute("hotelName", hotelName);
+		model.addAttribute("roomName", roomName);
+		model.addAttribute("checkIn", checkIn);
+		
+		model.addAttribute("list", list);
+		model.addAttribute("roomVO", roomVO);
+		model.addAttribute("memberList", memberList);
+		
+		return "reserve/reserve";
+	}
+	
+	@RequestMapping(value="/reserve/reserve.do", method=RequestMethod.POST)
+	public String insertReserve(HttpServletRequest request, MemberReserveVO memberReserveVO, HttpSession session, Model model){
+		
+		SimpleDateFormat df = new SimpleDateFormat("YYYY-MM-dd");
+		
+		String checkIn = memberReserveVO.getCheckIn();
+		String day = request.getParameter("day");
+		int dayPlus = Integer.parseInt(day);
+		
+		String[] checkInArr = checkIn.split("-");
+		int checkInYear = Integer.parseInt(checkInArr[0]);
+		int checkInMonth = Integer.parseInt(checkInArr[1]);
+		int checkInDay = Integer.parseInt(checkInArr[2]);
+		Calendar checkInCal = Calendar.getInstance();
+		checkInCal.set(checkInYear, checkInMonth-1, checkInDay);
+		checkInCal.add(Calendar.DATE, dayPlus);
+		
+		String checkOut = df.format(checkInCal.getTime());
+		MemberVO memberVO = (MemberVO)session.getAttribute("userVO");
+		memberReserveVO.setMemberNo(memberVO.getId());
+		memberReserveVO.setCheckOut(checkOut);
+		
+		service.insertReserve(memberReserveVO);
+		
+		model.addAttribute("msg", "예약이 완료 되었습니다.");
+		
+		return "redirect:/";
+	}	
+	
+	@RequestMapping("/reserve/cancleReserve.do")
+	public String cancleReserve(@ModelAttribute MemberReserveVO memberReserveVO, HttpSession session){
+		
+		MemberVO memberVO = (MemberVO)session.getAttribute("userVO");
+		String id = memberVO.getId();
+		memberReserveVO.setMemberNo(id);
+		
+		service.cancleReserve(memberReserveVO);
+		
+		return "redirect:/";
+	}
+	
+}

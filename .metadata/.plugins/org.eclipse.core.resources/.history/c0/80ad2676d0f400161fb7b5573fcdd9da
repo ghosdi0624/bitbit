@@ -1,0 +1,70 @@
+package kr.co.bit.hotel.dao;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import kr.co.bit.company.vo.CompanyFacilitiesVO;
+import kr.co.bit.company.vo.CompanyFileVO;
+import kr.co.bit.company.vo.CompanyInfoVO;
+import kr.co.bit.hotel.vo.RoomVO;
+
+@Repository
+public class HotelDAOImp implements HotelDAO {
+	
+	@Autowired
+	private SqlSessionTemplate sqlSessionTemplate;
+
+	@Override
+	public List<CompanyInfoVO> searchHotel() {
+		
+		List<CompanyInfoVO> list = sqlSessionTemplate.selectList("kr.co.bit.company.CompanyInfoDAO.selectAll");
+		
+		return list;
+	}
+
+	@Override
+	public CompanyFacilitiesVO hotelDatail(String name) {
+		
+		CompanyFacilitiesVO companyFacilitiesVO = sqlSessionTemplate.selectOne("kr.co.bit.company.CompanyFacilitiesDAO.selectByName", name);
+		
+		return companyFacilitiesVO;
+	}
+
+	@Override
+	public CompanyInfoVO getIntro(String name) {
+		
+		CompanyInfoVO companyInfoVO = sqlSessionTemplate.selectOne("kr.co.bit.company.CompanyInfoDAO.selectIntro", name);
+		
+		return companyInfoVO;
+	}
+
+	@Override
+	public List<CompanyFileVO> getFile(String name) {
+		
+		List<CompanyFileVO> list = sqlSessionTemplate.selectList("kr.co.bit.company.CompanyDAO.selectFiles", name);
+		
+		return list;
+	}
+
+	@Override
+	public List<RoomVO> minPrice() {
+		
+		List<RoomVO> roomList = sqlSessionTemplate.selectList("kr.co.bit.hotel.RoomDAO.minPrice");
+		
+		return roomList;
+	}
+
+	@Override
+	public Map<String, Integer> checkList(String checkIn, String checkOut) {
+
+		String[] str = new String[]{checkIn, checkOut};
+		Map<String, Integer> checkList = sqlSessionTemplate.selectMap("kr", str);
+		
+		return null;
+	}
+}

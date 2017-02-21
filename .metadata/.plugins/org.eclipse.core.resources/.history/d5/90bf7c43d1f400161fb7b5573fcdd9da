@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.bit.reserve.MemberReserveDAO">
+  	
+  	<insert id="insertReserve" parameterType="memberReserveVO">
+  		insert into member_reserve (no, member_no, hotel_name, room_name, check_in, check_out, persons_num, price) 
+  			values (seq_member_reserve_no.nextval, #{memberNo}, #{hotelName}, #{roomName}, #{checkIn}, #{checkOut}, #{personNum}, #{price})
+  	</insert>
+  	
+  	<select id="selectmypage" parameterType="String" resultType="memberReserveVO">
+  		select no, member_no as memberNO, hotel_name as hotelName, room_name as roomName, check_in as checkIn, check_out as checkOut, persons_num as personNum, status, price 
+  			from member_reserve
+  			where member_no = #{id}
+  	</select>
+  	
+  	<delete id="deleteReserve" parameterType="memberReserveVO">
+  		delete from member_reserve 
+  			where member_no = #{memberNo} and hotel_name = #{hotelName} and room_name = #{roomName} and check_in = #{checkIn}
+  	</delete>
+  	
+  	<select id="selectReservation" parameterType="java.util.List" resultType="memberReserveVO">
+  		select no, member_no as memberNO, hotel_name as hotelName, room_name as roomName, check_in as checkIn, check_out as checkOut, persons_num as personNum, status, price 
+  			from member_reserve
+  			<where>
+		        hotel_name in
+		        <foreach collection="list" item="item" index="index" separator="," open="(" close=")">
+		            #{item.hotelName}
+        		</foreach>
+    		</where>
+  	</select>
+  	
+  	<select id="checkList" parameterType="String" resultType="HashMap">
+  		select hotel_name, count(room_name)
+		  from member_reserve 
+		  where check_in in ('2017-02-25') and check_out not in('2017-02-28')
+		  group by hotel_name;
+  	</select>
+</mapper>

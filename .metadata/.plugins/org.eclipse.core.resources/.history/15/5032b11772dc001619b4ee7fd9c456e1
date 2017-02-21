@@ -1,0 +1,21 @@
+package kr.co.bit.reserve;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import kr.co.bit.controller.Controller;
+import kr.co.bit.reserve.dao.ReserveDAO;
+
+public class ReserveFormController implements Controller {
+
+	@Override
+	public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
+		ReserveDAO dao = new ReserveDAO();
+		
+		dao.selectReserve("day");
+		
+		return "/reserve/reserveForm.jsp";
+	}
+
+}

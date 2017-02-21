@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function Person(name, phone, addr) {
+		this.name = name;
+		this.phone = phone;
+		this.addr = addr;
+	}
+	
+	var p = new Person("홍길동","010-1234-5678","서울시 서초구 서초동");
+//	consol.log(p);
+
+	Person.prototype.info = function() {
+		var list = '';
+		for(var key in this){
+			if(key != 'info')
+			list += key + " : " + this[key] + '\n';
+		}
+		alert(list);
+	};
+
+	p.info();
+	
+	var person = new Person("고길동","010-1111-1111","경기도 안양시 만안구");
+	person.info();
+	
+	Person.prototype.info = function() { //prototype 재정의
+		alert("change");
+	};
+	
+	var person2 = new Person("최길동","010-2222-2222","경기도 안양시 만안구");
+	person2.info();
+	p.info();
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

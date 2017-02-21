@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	window.onload = function() {		// window.onload : body까지 종료되면 호출되는 함수 
+		alert("innerHTML : " + document.body.innerHTML);
+		alert("innerTEXT : " + document.body.innerText);
+		
+		var list = '';
+		list += '<ul>';
+		list += '<li>aaa</li>';
+		list += '<li>bbb</li>';
+		list += '<li>ccc</li>';
+		list += '</ul>';
+		
+//		document.body.innerHTML = list;  // HTML 형식으로 인식
+//		document.body.innerText = list;  // 문자열로 인식
+		document.body.innerHTML += list;
+//		document.body.innerHTML += '<br/>'
+//		document.body.innerText += list;
+	}
+</script>
+</head>
+<body>
+	Hello<br />
+	<h2>환영합니다</h2>
+</body>
+</html>

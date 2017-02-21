@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+	// 사용자가 입력한 패스워드와, 패스워드 확인 값이 서로 같다면 return true, 다르면 return false
+/* 	function whenSubmit() {
+		var pass = document.getElementById("pass");
+		var passCheck = document.getElementById("passCheck");
+		
+		if(pass.value == passCheck.value)
+			return true;
+		else
+			alert("패스워드가 다릅니다.");
+		
+		return false;
+	} */
+	function whenSubmit() {
+		var f = document.inputForm;
+		var pass = f.pass;
+		var passCheck = f.passCheck;
+		
+		if(pass.value == passCheck.value)
+			return true;
+		else
+			alert("패스워드가 다릅니다.");
+		
+		return false;
+	}
+	
+	
+</script>
+</head>
+<body>
+<!--  
+		<input type = ""
+					type : text(한줄입력)
+						   password(암호처리)
+						   checkbox(다중선택)
+						   radio(단일선택)
+						   button(사용자 이벤트 처리)
+						   file(첨부파일)
+						   hidden(입력을 받지 않고 임의의 값을 전송)
+						   reset(초기화)
+						   submit(폼에서 입력된 데이터를 지정된 경로로 전송)
+-->
+
+	<form action = "http://www.naver.com" method = "post" name = "inputForm" onsubmit = "return whenSubmit()">
+		이름 : <input type = "text" name = "name" size = "20" /><br />
+		패스워드 : <input type = "password" name = "pass" size = "20" id = "pass" /><br />
+		패스워드 확인 : <input type = "password" name = "passCheck" size = "20" id = "passCheck"/><br />
+		<input type = "submit" value = "전송" />
+	</form>
+</body>
+</html>

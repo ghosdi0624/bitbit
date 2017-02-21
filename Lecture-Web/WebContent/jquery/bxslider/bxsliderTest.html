@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- jQuery library (served from Google) -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<!-- bxSlider Javascript file -->
+<script src="js/jquery.bxslider.min.js"></script>
+<!-- bxSlider CSS file -->
+<link href="js/jquery.bxslider.css" rel="stylesheet" />
+<script>
+	$(document).ready(function() {
+		$('.bxslider').bxSlider({
+			slideWidth : 150,
+			minSlides : 2,
+			maxSlides : 3,
+			slideMargin : 10
+		});
+	});
+	
+	function webClick(){
+		location.href("http://www.naver.com");
+	}
+</script>
+</head>
+<body>
+	<ul class="bxslider">
+		<li onclick = "webClick()"><img src="/Lecture-Web/jquery/image/1.JPG" /></li>
+		<li onclick = "webClick()"><img src="/Lecture-Web/jquery/image/2.JPG" /></li>
+		<li onclick = "webClick()"><img src="/Lecture-Web/jquery/image/3.JPG" /></li>
+		<li onclick = "webClick()"><img src="/Lecture-Web/jquery/image/4.JPG" /></li>
+		<li onclick = "webClick()"><img src="/Lecture-Web/jquery/image/5.JPG" /></li>
+		<li onclick = "webClick()"><img src="/Lecture-Web/jquery/image/6.JPG" /></li>
+		<li onclick = "webClick()"><img src="/Lecture-Web/jquery/image/7.JPG" /></li>
+		<li onclick = "webClick()"><img src="/Lecture-Web/jquery/image/8.JPG" /></li>
+	</ul>
+</body>
+</html>

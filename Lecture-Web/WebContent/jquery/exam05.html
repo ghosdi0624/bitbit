@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src = "js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+//		$('input:button').hide();			// input태그중 type이 button인 input태그를 숨기기.
+//		$('button').hide();					// button 태그 숨기기.
+//		$(':button').hide();				// input의 button과 button태그를 모두 숨기기.
+		$(':button').click(function(){		// 버튼 클릭시..
+//			$('h1').hide();					// h1태그 숨기기
+			$(this).hide();					// 선택한 버튼 숨기기
+		});
+	});
+</script>
+</head>
+<body>
+	<h1>----------------------------------</h1>
+	<input type = "button" value="버튼1" />
+	<button>버튼2</button>
+	<h1>----------------------------------</h1>
+</body>
+</html>

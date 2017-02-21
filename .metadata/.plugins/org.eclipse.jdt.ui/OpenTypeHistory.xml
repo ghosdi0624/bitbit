@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+<typeInfo handle="=Mission-Web-MVC/src&lt;kr.co.bit.controller{Controller.java[Controller" modifiers="513" timestamp="1484199743449"/>
+<typeInfo handle="=Mission-Web-MVC02/C:\/Program Files\/Apache Software Foundation\/Tomcat 8.0\/lib\/servlet-api.jar&lt;javax.servlet(Filter.class[Filter" modifiers="1537" timestamp="1478681450000"/>
+<typeInfo handle="=Mission-Web-MVC02/C:\/Program Files\/Java\/jre1.8.0_111\/lib\/rt.jar&lt;com.sun.org.apache.xalan.internal.xsltc.dom(Filter.class[Filter" modifiers="1537" timestamp="1483935404423"/>
+<typeInfo handle="=Lecture-Spring/src\/main\/java&lt;DI01_01{Tire.java[Tire" modifiers="513" timestamp="1485236052069"/>
+<typeInfo handle="=Lecture-Spring/src\/main\/java&lt;AOP02{Person.java[Person" modifiers="513" timestamp="1485926306662"/>
+<typeInfo handle="=Lecture-Spring/src\/main\/java&lt;AOPPrac{Human.java[Human" modifiers="513" timestamp="1485997572215"/>
+<typeInfo handle="=Mission-Spring-Web/src\/main\/java&lt;kr.co.bit.board.dao{BoardDAO.java[BoardDAO" modifiers="513" timestamp="1486449926405"/>
+<typeInfo handle="=Mission-Spring-Web/src\/main\/java&lt;kr.co.bit.member.dao{MemberDAO.java[MemberDAO" modifiers="513" timestamp="1486455697839"/>
+<typeInfo handle="=Hotel-reserve-project/src\/main\/java&lt;kr.co.bit.reserve.service{ReserveService.java[ReserveService" modifiers="513" timestamp="1486995425078"/>
+</typeInfoHistroy>

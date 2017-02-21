@@ -1,0 +1,22 @@
+package kr.co.bit.reserve;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import kr.co.bit.controller.Controller;
+
+public class ReserveProcController implements Controller {
+
+	@Override
+	public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
+		request.setCharacterEncoding("utf-8");
+		
+		String[] time = request.getParameter("time").split(",");
+		String[] roomName = request.getParameter("roomName").split(",");
+		String[] people = request.getParameter("people").split(",");
+		
+		return "/reserve/reserveProc.jsp";
+	}
+
+}

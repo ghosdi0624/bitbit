@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.1.1.min.js"></script>
+<style type="text/css">
+div {
+	width: 100px; 
+	height: 100px; 
+	background-color: red;
+}
+</style>
+<script type="text/javascript">
+	$(document).ready(function() {
+		/* 
+		 $('div').css({
+		 'width':'100px',
+		 'height':'100px',
+		 'background-color':'red'
+		 });
+		 */
+ 
+		$('div').hide(1000);
+		$('div').show(1000);
+		
+		$('div').fadeOut(1000);
+		$('div').fadeIn(1000);
+		
+		$('div').fadeToggle();
+		$('div').fadeToggle();
+
+		$('div').fadeTo(2000, 0.1);
+	});
+</script>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

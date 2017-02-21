@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var msg = new String("Hello JavaScript");
+
+	String.prototype.changeStr = function() {
+		var str = this.bold().toUpperCase().fontColor('red').fontSize('20pt');
+		return str;
+	};
+	
+	document.write('msg : ' + msg + '<br/>');
+	document.write(msg.changeStr() + '<br/>');
+</script>
+</head>
+<body>
+
+</body>
+</html>

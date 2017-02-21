@@ -1,0 +1,36 @@
+1486343288481	Move 'web.xml' to 'web'
+1486343448629	Move 'web.xml' to 'WEB-INF'
+1486343469699	Rename resource 'web'
+1486348216704	Delete element
+1486348420727	Rename resource 'board.xml'
+1486355790441	Delete element
+1486358074136	Copy package
+1486358085761	Delete element
+1486358097802	Delete element
+1486358149294	Delete element
+1486358276294	Move 'list.jsp' to 'board'
+1486358309431	Rename resource 'jsp'
+1486358344327	Rename resource 'web'
+1486359714918	Delete element
+1486365026509	Delete element
+1486368902259	Copy file
+1486369291738	Rename package 'kr.co.bit.member.vo'
+1486373247376	Rename type 'MemberService'
+1486428225335	Delete element
+1486434999724	Delete element
+1486442056526	Move folder
+1486451350608	Delete element
+1486456622081	Rename type 'ZipcodeDAO'
+1486456709649	Rename type 'ZipCodeDAO'
+1486456713872	Rename type 'ZipCodeSerivce'
+1486456740898	Delete element
+1486456788663	Rename package 'kr.co.bit.zipcode.vo'
+1486456802250	Delete element
+1486456815272	Delete element
+1486456817750	Delete element
+1486456827056	Rename package 'kr.co.bit.zipcode'
+1486528364951	Copy file
+1486528380637	Copy folder
+1486531320216	Copy file
+1486545063830	Copy folder
+1486546778902	Copy file

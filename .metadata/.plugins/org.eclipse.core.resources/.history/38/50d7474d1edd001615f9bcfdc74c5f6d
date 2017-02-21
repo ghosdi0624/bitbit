@@ -1,0 +1,29 @@
+@CHARSET "UTF-8";
+
+body{
+	margin: 0;
+	padding: 0;
+	font-family: verdana, sans-serif;
+	font-size: 13px;
+}
+
+header{
+	height: 88px;
+	margin-top: 1%;
+	margin-left: 15%;
+	margin-right: 15%;
+}
+
+section{
+	margin-left: 15%;
+	margin-right: 15%;
+	top : 60px;
+	min-height: 400px;
+	margin-top: 1%;
+}
+
+footer{
+	margin-left: 15%;
+	margin-right: 15%;
+	padding: 20px;
+}

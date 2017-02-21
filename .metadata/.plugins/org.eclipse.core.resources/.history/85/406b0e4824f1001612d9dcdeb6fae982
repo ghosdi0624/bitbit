@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.bit.member.MemberDAO">
+  	
+  	<sql id="selectAll">
+  		select * from member
+  	</sql>
+  	
+  	<insert id="insertMember" parameterType="memberVO">
+  		insert into member (no, id, name, password, tel1, tel2, tel3, email) 
+  			values (seq_member_no.nextval, #{id}, #{name}, #{password}, #{tel1}, #{tel2}, #{tel3}, #{email})
+  	</insert>
+  	
+  	<select id="selectIdcheck" parameterType="String" resultType="String">
+  		select id from member where id = #{id}
+  	</select>
+  	
+  	<select id="selectmember" parameterType="memberVO" resultType="memberVO">
+  		<include refid="selectAll" /> where id = #{id} and password = #{password}
+  	</select>
+  	
+  	<select id="selectRoom" parameterType="String" resultType="memberReserveVO">
+  		select no, member_no as memberNo, hotel_name as hotelName, room_name as roomName, check_in as checkIn, check_out as checkOut, persons_num as personNum, ststus, price 
+  			from member_reserve
+  			where hotel_name = #{hotelName}
+  	</select>
+</mapper>

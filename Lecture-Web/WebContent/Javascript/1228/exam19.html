@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/*  
+	 	브라우저 객체 모델 (BOM)
+	 	window 객체
+	 		- location 객체
+	 		- navigator 객체
+	 		- history 객체
+	 		- screen 객체
+	 		- document 객체
+	*/
+
+	var a = 10;
+	function func() {
+		var a = 20;
+		alert(window.a); // 10이 출력
+	}
+	
+	var sub = window.open(" ", " ", "width=400, height=300");
+	if(!sub){
+		alert("팝업창 옵션을 확인하세요");
+	}
+	
+	sub.moveTo(100,100); // 모니터에 창이 뜨는 위치 지정
+	
+	setInterval(function(){
+		sub.moveBy(10,10); //현재 sub가 가지고 있는 위치에서 이동하여 창이뜨는위치 지정, 1000ms->1초
+	}, 1000);
+</script>
+</head>
+<body>
+
+</body>
+</html>

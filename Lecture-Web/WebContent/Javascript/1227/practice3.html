@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+//배열에 추가할 데이터 입력 (quit 종료) 
+//aaa, 10, A, 12.34, quit
+//배열의 원소개수 : 4개
+//aaa 10 A 12.34
+//1. 배열 new Array()
+//2. eval() 함수 사용
+
+	var array = [];
+	var i = 0;
+
+	var total = '';
+	total += 'while(true){var str = prompt();if(str=="quit")break;array[i++] = str;}';
+	
+	eval(total);
+	
+	document.write('배열의 원소개수 : '+array.length+'개<br/>');
+	document.write(array);
+</script>
+</head>
+<body>
+
+</body>
+</html>

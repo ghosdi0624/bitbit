@@ -1,0 +1,48 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%
+	request.setCharacterEncoding("utf-8");
+
+	String time = request.getParameter("jTime");
+	int roomNo = Integer.parseInt(request.getParameter("jRoomNo"));
+	String roomName = null;
+
+	switch (roomNo) {
+	case 1:
+		roomName = "검찰청";
+		pageContext.setAttribute("roomName", roomName);
+		break;
+	case 2:
+		roomName = "관세청";
+		pageContext.setAttribute("roomName", roomName);
+		break;
+	case 3:
+		roomName = "대통령";
+		pageContext.setAttribute("roomName", roomName);
+		break;
+	case 4:
+		roomName = "국세청";
+		pageContext.setAttribute("roomName", roomName);
+		break;
+	case 5:
+		roomName = "교육청";
+		pageContext.setAttribute("roomName", roomName);
+		break;
+	case 6:
+		roomName = "경찰청";
+		pageContext.setAttribute("roomName", roomName);
+		break;
+	case 7:
+		roomName = "소방청";
+		pageContext.setAttribute("roomName", roomName);
+		break;
+	}
+	
+	pageContext.setAttribute("time", time);
+%>
+[
+	{ 
+		time : ${ time }, 
+		roomName : $ { roomName } 
+	}
+]

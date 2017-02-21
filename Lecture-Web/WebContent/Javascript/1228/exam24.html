@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function Person(name, phone, addr) {
+		this.name = name;
+		this.phone = phone;
+		this.addr = addr;
+		this.info = function() {
+			
+			var list = '';
+			for(var key in this){
+				if(key != 'info')
+					list += key + " : " + this[key] + "\n";
+			}
+			alert(list);
+		};
+	}
+	
+	var person = new Person("홍길동","010-1234-5678","서울시 서초구 서초동");  // 생성자 패턴이기 때문에 new로 호출
+	person.info();
+	
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

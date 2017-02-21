@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var nums = [ 10, 20, 30, 40, 50 ];
+	// 0번째 정수는 10
+	// 1번째 정수는 20
+
+	nums.forEach(function(element, index, nums) {
+		document.write(index + '번째 정수 : ' + element+'<br/>');
+	});
+	
+	var nums2 = nums.map(function(element){
+		return element + 100;
+	});
+	
+	nums2.forEach(function(element, index, nums) {
+		document.write(index + '번째 정수 : ' + element+'<br/>');
+	});
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/maps/documentation/javascript/demos/demos.css">
+  </head>
+  <script src = "js/jquery-3.1.1.min.js"></script>
+<style type="text/css">
+html, body {
+	width: 80%;
+	height: 80%;
+	margin: 0;
+	padding: 0;
+}
+
+#map {
+	height: 100%;
+}
+</style>
+<body>
+    <div id="map"></div>
+    <script>
+    var historicalOverlay;
+
+    function initMap() {
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 13,
+        center: {lat: 40.740, lng: -74.18}
+      });
+
+      var imageBounds = {
+        north: 40.773941,
+        south: 40.712216,
+        east: -74.12544,
+        west: -74.22655
+      };
+
+     $(document).ready(function(){
+    	 $(':button').click(function(){
+		      historicalOverlay = new google.maps.GroundOverlay(
+		          'https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg',
+		          imageBounds);
+		      historicalOverlay.setMap(map);
+    	 });
+   	 });
+    }
+
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAF05JCFoefu9jROxjM8TcHc8GIR6YDhuU&callback=initMap">
+    </script>
+    <input type="button" value=" 변경 "/>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.bit.company.CompanyFacilitiesDAO">
+  	
+  	<insert id="insertfacilities" parameterType="companyFacilitiesVO">
+  		insert into company_Facilities (id, hotel_name, basic, convenience, service, internet, parking, check_in, check_out) 
+  			values (#{id}, #{hotelName}, #{basic}, #{convenience}, #{service}, #{internet}, #{parking}, #{checkIn}, #{checkOut})
+  	</insert>
+  	
+  	<select id="selectByName" parameterType="String" resultType="CompanyFacilitiesVO">
+  		select id, hotel_name as hotelName, basic, convenience, service, internet, parking, check_in as checkIn, check_out as checkOut
+  			from company_Facilities
+  			where hotel_name = #{hotelName}
+  	</select>
+  	
+</mapper>

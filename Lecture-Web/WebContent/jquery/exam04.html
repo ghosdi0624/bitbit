@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		alert("ready");
+//		$('a[href]').hide();			// a태그중 href속성을 가지고 있는 a태그를 숨기기.
+//		$('a[target]').hide();			// a태그중 target속성을 가지고 있는 a태그를 숨기기.
+		$('a[href="http://www.naver.com"]').hide();		// a태그중 href속성이 naver인 a태그를 숨기기.
+	});
+</script>
+</head>
+<body>
+	<h2>a Tag전</h2>
+	<a href = "http://www.naver.com">네이버</a>
+	<a href = "http://www.daum.net" target = "_blank">다음</a>
+	<h2>a Tag후</h2>
+</body>
+</html>

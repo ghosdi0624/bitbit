@@ -1,0 +1,42 @@
+package kr.co.bit.reserve.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import kr.co.bit.util.ConnectionFactory;
+
+public class ReserveDAO {
+
+	
+	/**
+	 * 예약 내용 DB저장
+	 * @param time
+	 * @param roomNo
+	 * @param people
+	 * @param id
+	 */
+	public void insertReserve(String time, int roomNo, String people, String id) {
+		
+		int pNum = Integer.parseInt(people);
+		StringBuilder sql = new StringBuilder();
+		sql.append("insert into reservation ");
+		sql.append(" (rsv_no, member_id, room_id, persons_num, day) ");
+		sql.append(" values (seq_rsv_no.nextval,?,?,?,sysdate)  ");
+		
+		try(
+			Connection conn = new ConnectionFactory().getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql.toString());
+			)
+		{
+			pstmt.setString(1, id);
+			pstmt.setInt(2, roomNo);
+			pstmt.setInt(3, pNum);
+//			pstmt.setString(4, time);
+			pstmt.executeUpdate();
+			
+		} catch(Exception e){
+			e.getMessage();
+		}
+	}
+	
+}

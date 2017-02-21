@@ -1,0 +1,2 @@
+/reserveForm.do=kr.co.bit.reserve.ReserveFormController
+/reserveResponse.do=kr.co.bit.reserve.ReserveResponseController

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!--
+<script src="http://jquery.com/latest.js">
+<script src="http://jquery.com/jquery-3.1.1.min.js">
+<script src="/Lecture-Web/jquery/js/jquery-3.1.1.min.js">
+<script src="js/jquery-3.1.1.min.js">
+ -->
+<script src="js/jquery-3.1.1.min.js"></script> <!-- 다른 파일 가져올때는 스크립트 종료 후 다시 스크립트 생성 -->
+<script>
+// jquery는 $로 시작함, 에러메세지에서 $를 읽을수 없는경우 jquery 라이브러리 확인해보기.
+	$(document).ready(function(){ // window.onload와 같은의미, window.onload는 한번만 가능하지만 이건 여러번 가능
+		alert('ready...');
+	});
+	
+	$(document).ready(function(){
+		alert('ready2...');
+	});
+	$(function(){
+		alert('ready3...');
+	});
+</script>
+</head>
+<body>
+	
+</body>
+</html>

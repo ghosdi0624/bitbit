@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.bit.hotel.RoomDAO">
+  	
+  	<insert id="insertRoom">
+  		insert into company_room (no, hotel_name, room_name, min_capacity, max_capacity, price, ori_room_file, new_room_file, introduce) 
+  			values (seq_company_room_no.nextval, #{hotelName}, #{roomName}, #{minCapacity}, #{maxCapacity}, #{price}, #{oriRoomFile}, #{newRoomFile}, #{introduce})
+  	</insert>
+  	
+  	<select id="selectAll" parameterType="String" resultType="roomVO">
+  		select no, hotel_name as hotelName, room_name as roomName, min_capacity as minCapacity, max_capacity as maxCapacity, price, ori_room_file as oriRoomFile, new_room_file as newRoomFile, introduce 
+  			from company_room
+  			where hotel_name = #{hotelName}
+  	</select>
+  	
+  	<select id="selectByRoomName" parameterType="String" resultType="roomVO">
+  		select no, hotel_name as hotelName, room_name as roomName, min_capacity as minCapacity, max_capacity as maxCapacity, price, ori_room_file as oriRoomFile, new_room_file as newRoomFile, introduce 
+  			from company_room
+  			where room_name = #{roomName}
+  	</select>
+  	
+  	<select id="minPrice" resultType="roomVO">
+  		select hotel_name as hotelName, min(price) as price 
+  			from company_room 
+  			group by hotel_name
+  	</select>
+  	
+</mapper>

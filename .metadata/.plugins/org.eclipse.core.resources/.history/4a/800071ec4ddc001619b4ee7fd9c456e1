@@ -1,0 +1,45 @@
+package kr.co.bit.reserve;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import kr.co.bit.controller.Controller;
+import kr.co.bit.reserve.dao.ReserveDAO;
+import kr.co.bit.reserve.vo.ReserveVO;
+
+public class ReserveProcController implements Controller {
+
+	@Override
+	public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
+		request.setCharacterEncoding("utf-8");
+		
+		HttpSession session = request.getSession();
+		ReserveDAO dao = new ReserveDAO();
+		
+		String[] time = request.getParameter("time").split(",");			// 	예약시간
+		String[] roomName = request.getParameter("roomName").split(",");	//	방이름
+		String[] people = request.getParameter("people").split(",");		//	인원수
+		String id = (String)session.getAttribute("id");						// 	ID
+
+		for(int i=0; i<time.length; i++){
+			
+			int roomNo = 0;
+			switch(roomName[i]){
+			case "검찰청" : roomNo = 1; break;
+			case "관세청" : roomNo = 2; break;
+			case "대통령" : roomNo = 3; break;
+			case "국세청" : roomNo = 4; break;
+			case "교육청" : roomNo = 5; break;
+			case "경찰청" : roomNo = 6; break;
+			case "소방청" : roomNo = 7; break;
+			}
+			
+			dao.insertReserve(time[i],roomNo,people[i],id);
+		}
+		
+		return "/reserve/reserveProc.jsp";
+	}
+
+}

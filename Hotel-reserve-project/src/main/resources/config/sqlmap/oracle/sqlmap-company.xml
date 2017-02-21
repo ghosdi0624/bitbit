@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.bit.company.CompanyDAO">
+  	
+  	<sql id="selectAll">
+  		select id, company_name as companyName, password, addr, bank_name as bankName, bank_account as bankAccount, type from company
+  	</sql>
+  	
+  	<insert id="insertCompany" parameterType="companyVO">
+  		insert into company (id, company_name, password, addr, bank_name, bank_account) values (#{id}, #{companyName}, #{password}, #{addr}, #{bankName}, #{bankAccount})
+  	</insert>
+  	
+  	<select id="selectIdcheck" parameterType="String" resultType="String">
+  		select id from company where id = #{id}
+  	</select>
+  	
+  	<select id="selectcompany" parameterType="companyVO" resultType="companyVO">
+  		<include refid="selectAll" /> where id = #{id} and password = #{password}
+  	</select>  	
+  	
+  	<insert id="insertFile" parameterType="companyFileVO">
+  		insert into company_file (no, hotel_name, ori_file, new_file)
+  			values (seq_company_file_no.nextval, #{hotelName}, #{oriFile}, #{newFile})
+  	</insert>
+  	
+  	<select id="selectFiles" parameterType="String" resultType="companyFileVO">
+  		select no, hotel_name as hotelName, ori_file as oriFile, new_file as newFile
+  			from company_file
+  			where hotel_name = #{ hotelName }
+  	</select>  
+  
+  	
+</mapper>

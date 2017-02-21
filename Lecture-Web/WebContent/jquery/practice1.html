@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+#mon {
+	width: 100px;
+	height: 100px;
+	background: red;
+	text-align:center;
+	display:table-cell;
+	vertical-align:middle;
+}
+
+#tue {
+	width: 100px;
+	height: 100px;
+	background: orange;
+	text-align:center;
+	display:table-cell;
+	vertical-align:middle;
+}
+
+#wed {
+	width: 100px;
+	height: 100px;
+	background: yellow;
+	text-align:center;
+	display:table-cell;
+	vertical-align:middle;
+}
+
+#thr {
+	width: 100px;
+	height: 100px;
+	background: green;
+	text-align:center;
+	display:table-cell;
+	vertical-align:middle;
+}
+
+#fri {
+	width: 100px;
+	height: 100px;
+	background: blue;
+	text-align:center;
+	display:table-cell;
+	vertical-align:middle;
+}
+
+#sat {
+	width: 100px;
+	height: 100px;
+	background: navy;
+	text-align:center;
+	display:table-cell;
+	vertical-align:middle;
+}
+
+#sun {
+	width: 100px;
+	height: 100px;
+	background: purple;
+	text-align:center;
+	display:table-cell;
+	vertical-align:middle;
+}
+</style>
+<script src="js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('div').click(function() {
+			var text = $(this).text();
+			$(this).html('<h3>'+text+'요일</h3>');
+			$(this).animate({
+				'width' : '120px',
+				'height' : '120px'
+			});
+		});
+
+		$('div').mouseleave(function() {
+			var text = $(this).text();
+			text = text[0];
+			$(this).html(text);
+			$(this).animate({
+				'width' : '100px',
+				'height' : '100px'
+			});
+		});
+
+	});
+</script>
+</head>
+<body>
+	<table>
+		<tr>
+			<td><div id="mon">월</div></td>
+			<td><div id="tue">화</div></td>
+			<td><div id="wed">수</div></td>
+			<td><div id="thr">목</div></td>
+			<td><div id="fri">금</div></td>
+			<td><div id="sat">토</div></td>
+			<td><div id="sun">일</div></td>
+		</tr>
+	</table>
+</body>
+</html>

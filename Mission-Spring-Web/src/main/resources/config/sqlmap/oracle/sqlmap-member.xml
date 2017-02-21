@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.bit.member.MemberDAO">
+    
+    <sql id="selectAll">
+    	select id, name, password, email_id as emailId, email_domain as emailDomain, tel1, tel2, tel3, post, basic_addr as basicAddr, detail_addr as detailAddr, type, to_char(reg_date, 'yyyy-mm-dd') regDate from t_member
+	</sql>
+  	
+  	<select id="selectMember" resultType="memberVO">
+  		<include refid="selectAll" />
+  	</select>
+  	
+  	<select id="login" parameterType="memberVO" resultType="memberVO">
+  		select id, password, type from t_member where id = #{id} and password = #{password}
+  	</select>
+  	
+  	<select id="mypage" parameterType="memberVO" resultType="memberVO">
+  		<include refid="selectAll" /> where id = #{id}
+  	</select>
+  	
+  	<select id="pwproc" parameterType="String" resultType="String">
+  		select password from t_member where id = #{id}
+  	</select>
+  	
+ 	<update id="changePW" parameterType="memberVO">
+ 		update t_member set password = #{password} where id = #{id}
+ 	</update>
+  	
+</mapper>

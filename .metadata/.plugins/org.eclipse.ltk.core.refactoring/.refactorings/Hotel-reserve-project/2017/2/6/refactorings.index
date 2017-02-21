@@ -1,0 +1,39 @@
+1486528394763	Delete element
+1486531513527	Rename resource 'newmemberform.jsp'
+1486531526603	Copy file
+1486531535329	Rename resource 'memberform.jsp'
+1486533887608	Rename type 'MemberService'
+1486533892974	Rename type 'MemberDAO'
+1486533900489	Rename type 'CompanySerivce'
+1486533904766	Rename type 'CompanyDAO'
+1486536509935	Copy file
+1486536595249	Rename resource 'sqlmap-company.xml'
+1486536600968	Rename resource 'sqlmap-member.xml'
+1486536607641	Rename resource '1.xml'
+1486545490054	Rename resource 'loginfront'
+1486546787616	Copy file
+1486546790374	Delete element
+1486546802097	Move 'loginform.jsp' to 'login'
+1486546809670	Rename resource 'loginform.jsp'
+1486546821980	Copy file
+1486548868466	Delete element
+1486549409379	Copy file
+1486604721601	Rename resource 'registerhotle.jsp'
+1486608446757	Copy file
+1486612583324	Copy file
+1486618718177	Copy file
+1486624973490	Rename resource 'menu.jsp'
+1486626449885	Rename type 'HotelService'
+1486626509126	Rename compilation unit 'HotelDAO.java'
+1486689640361	Delete element
+1486698391252	Copy compilation unit
+1486698395455	Delete element
+1486708961342	Delete element
+1486713031519	Delete elements
+1486793078831	Rename resource 'mainiamge.jpg'
+1486818033508	Delete element
+1486824504230	Encapsulate field 'introduce'
+1486824569056	Rename resource 'forthregisterhotel.jsp'
+1486825959592	Delete element
+1486827492855	Delete element
+1486827689246	Copy file

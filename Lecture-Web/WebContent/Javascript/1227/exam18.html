@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var willEval = '';
+	willEval += 'alert("Hello");';
+	willEval += 'var number = 10;';  // 문자열안에서 만든 변수도 계속 유지
+	willEval += 'alert(number);';
+	willEval += 'var array = [10,"abc",12.34];';
+	willEval += 'alert("배열개수 : "+array.length);';
+	
+	eval(willEval);  // 문자열안에 자바스크립트 문법이 있는경우 실행시켜주는 메소드 --> eval();
+	
+	number += 30;
+	alert(number);
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

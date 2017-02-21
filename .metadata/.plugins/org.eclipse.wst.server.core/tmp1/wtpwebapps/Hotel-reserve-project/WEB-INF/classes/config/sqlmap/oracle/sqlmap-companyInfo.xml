@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.bit.company.CompanyInfoDAO">
+  	
+  	<insert id="insertinfo" parameterType="companyInfoVO">
+  		insert into company_info (no, id, hotel_name, internet, parking, breakfast, introduce, addr) 
+  			values (seq_company_info_no.nextval, #{id}, #{hotelName}, #{internet}, #{parking}, #{breakfast}, #{introduce}, #{addr})
+  	</insert>
+  	
+  	<select id="selectAll" resultType="companyInfoVO">
+  		select no, id, hotel_name as hotelName, internet, parking, breakfast, introduce, addr, ori_main_file as oriMainFile, new_main_file as newMainFile 
+  			from company_info
+  	</select>
+ 
+ 	<select id="selectIntro" parameterType="String" resultType="companyInfoVO">
+ 		select no, id, hotel_name as hotelName, internet, parking, breakfast, introduce, addr, ori_main_file as oriMainFile, new_main_file as newMainFile 
+ 			from company_info 
+ 			where hotel_Name = #{name}
+ 	</select>
+ 	
+ 	<update id="updateOriMainFile" parameterType="companyInfoVO">
+ 		update company_info set ori_main_file = #{oriMainFile} 
+ 			where hotel_name = #{hotelName}
+ 	</update>
+ 	
+ 	<update id="updateNewMainFile" parameterType="companyInfoVO">
+ 		update company_info set new_main_file = #{newMainFile} 
+ 			where hotel_name = #{hotelName}
+ 	</update>
+ 	
+ 	<select id="selectById" parameterType="String" resultType="companyInfoVO">
+  		select no, id, hotel_name as hotelName, internet, parking, breakfast, introduce, addr, ori_main_file as oriMainFile, new_main_file as newMainFile 
+  			from company_info where id = #{id}
+  	</select>
+  	
+  	<select id="selectHotelNames" parameterType="String" resultType="companyInfoVO">
+  		select no, id, hotel_name as hotelName, internet, parking, breakfast, introduce, addr, ori_main_file as oriMainFile, new_main_file as newMainFile
+  			from company_info where id = #{id} 
+  	</select>
+ 	
+</mapper>

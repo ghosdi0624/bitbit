@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function Person(name, phone, addr) { // 생성자 함수
+		this.name = name;
+		this.phone = phone;
+		this.addr = addr;
+	}
+
+	Person.prototype.hobby = 'movie';
+
+	Person.prototype.info = function() {
+		var list = '';
+		for ( var key in this) {
+			if (key != 'info')
+				list += key + " : " + this[key] + '\n';
+		}
+		alert(list);
+	};
+
+	function Doctor(major) {
+		this.major = major;
+	}
+
+	Doctor.prototype = Person.prototype;		// 상속 !!! 자바스크립트에서 상속은 prototype에서의 상속 개념
+	
+	var person = new Person("홍길동", "010-1234-5678", "서울시 서초구 서초동");
+	person.info();
+	
+	var doctor = new Doctor("신경외과");
+	doctor.info();
+	
+	alert(doctor instanceof Doctor);
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var books = new Array();
+	books[0] = "신데렐라";
+	books[1] = "콩쥐팥쥐";
+	books[2] = "피터팬";
+	books[3] = "춘향전";
+	books[4] = "라푼젤";
+	
+	for(var i in books){
+		document.write(i + '번째 책 제목 : ' + books[i] + '<br/>');
+	}
+	document.write('<br/>');
+	
+	books.sort();
+	
+	for(var i in books){
+		document.write(i + '번째 책 제목 : ' + books[i] + '<br/>');
+	}
+	document.write('<br/>');
+	
+	var nums = [5, 12, 89, 54, 3];
+	document.write(nums); document.write('<br/>');
+	nums.sort(function(left, right){
+		return right - left;
+	});
+	document.write(nums);
+	
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

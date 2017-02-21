@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src = "js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('input').keydown(function(){
+			$(this).css('color','orange');
+		});
+		
+		$('input').keyup(function(){
+			$(this).css('color','black');
+		});
+		
+		$('input').focus(function(){
+			$(this).css('background-color','lightgray');
+		})
+		
+		$('input').blur(function(){
+			$(this).css('background-color','white');
+		})
+	});
+</script>
+<style type="text/css">
+div{
+	border-right-style: 
+}
+</style>
+</head>
+<body>
+	이름 : <input type = "text" size = "20" /><br/>
+	전화번호 : <input type = "tel" size = "20" /><br/>
+</body>
+</html>

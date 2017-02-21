@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+img{
+	width:100px;
+}
+</style>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src = "js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$(':button').click(function(){
+//			$('img').eq(1).css('border','3px solid green');
+//			$('img').last().css('border','3px solid green');
+//			$('img').last().prependTo('body');						// 마지막꺼를 body의 맨 앞쪽으로 이동
+			$('img').first().appendTo('body');						// 맨처음꺼를 body의 맨 뒤쪽으로
+		
+		});
+	});
+</script>
+</head>
+<body>
+	<img src = "image/Desert.jpg" />
+	<img src = "image/Chrysanthemum.jpg" />
+	<img src = "image/Hydrangeas.jpg" />
+	<img src = "image/Jellyfish.jpg" />
+	<img src = "image/Koala.jpg" />
+	<br/>
+	<button>클릭</button>
+</body>
+</html>

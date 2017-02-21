@@ -1,0 +1,45 @@
+@CHARSET "UTF-8";
+
+
+
+table, th, td{
+	border: 1px solid #D4E0EE;	/* 선 모양 굵기 색깔 */
+	border-collapse: collapse;  /* 테이블 한줄로 */
+	font-family: verdana, sans-serif; /* 폰트모양 */
+	color: #555;				/* 글자색깔 */
+}
+
+th, td{
+	padding: 5px;
+}
+
+th{
+	background: #E6EDF5;
+	color: #4F76A3;
+}
+
+/* tr:nth-child(odd){
+	background-color:#F7F9FC;
+}  */
+
+tr.even{
+	background-color:#F7F9FC;
+} 
+
+table.list tr:hover{	/* hover : tr에 마우스가 진입됬을때 */
+	/* background: #FEFDCF; */
+	background: #a5d8da;
+}
+
+td a:link, td a:visited, div.pageNum a:link, div.pageNum a:visited{ /* td에 a태그중 링크가 있는 경우와 링크를 접속한 경우 */
+	color: #718ABE;
+	text-decoration: none; 	/* 언더라인 제거 */
+}
+
+td a:hover{	/* td에 a태그가 있는곳에 마우스가 다가가면 */
+	text-decoration: underline;	/* 밑줄표시 */
+}
+
+div.pageNum{
+	text-decoration: none;
+}

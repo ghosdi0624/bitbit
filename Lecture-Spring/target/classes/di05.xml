@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+						   http://www.springframework.org/schema/beans/spring-beans.xsd">
+		
+		<bean id="list" class="DI05.ListAddress">
+<!-- 			
+			<constructor-arg>
+				<list>
+					<value>서울시 서초구 서초동</value>
+					<value>서울시 강남구 대치동</value>
+					<value>경기도 성남시 분당구</value>
+				</list>
+			</constructor-arg>
+	 -->		
+	 		<property name="address">
+				<list>
+					<value>서울시 서초구 서초동</value>
+					<value>서울시 강남구 대치동</value>
+					<value>경기도 성남시 분당구</value>
+				</list>
+			</property>
+		</bean>				   
+</beans>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function testFunction() {
+		alert('call...');
+	}
+
+	function testFuc(c) {
+		alert('날라온 데이터 : ' + c);
+	}
+
+	function testFunc(a, b) {
+		alert('날라온 데이터 : ' + a + ',' + b);
+	}
+
+	testFunction();
+	testFuc('A');
+	testFunc('A', 'B');
+
+	function sum(a, b) {
+		return a + b;
+	}
+
+	var total = sum(10, 20);
+	alert('10 + 20 = ' + total);
+
+	var temp = function func() {
+		alert("func()..");
+	}
+	temp();
+
+	var func1 = function() {
+		alert("func1()...");
+	}
+	func1();
+
+	function callFunc(f) {
+		f();
+	}
+	callFunc(testFunction);
+	callFunc(func1);
+
+	function getSum(a, b) {
+		var s = 0;
+		for (var i = 0; i <= b; i++) {
+			s += i;
+		}
+		return s;
+	}
+
+	
+	function printSum(a, b) {
+		function sum(a,b){  \
+			var s = 0;
+			while(a<=b)
+				s+=a++;
+			return s;
+		}
+	//	var s = getSum(a, b);
+	//	alert('총합 : ' + s);
+		alert('총합 : ' + sum(a,b));	// 함수내부의 함수는 일시적인 선언으로 오버로딩이 안됨
+	}
+	printSum(1, 10);
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

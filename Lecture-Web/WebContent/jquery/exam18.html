@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src = "js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#btn01').click(function(){
+/* 			var tag = document.createElement('h3');
+			var text = document.createTextNode("세번째 문장");
+			tag.appendChild(text);
+ */		
+// 			$('div').append("<h3>세번째 문장</h3>");
+			$('div').prepend("<h3>세번째 문장</h3>");
+		});
+		
+		$('#btn02').click(function(){
+			$('ol').append("<li>노랑</li>");
+		});
+		
+		$('#btn03').click(function(){
+			$('body').append("<h4>본문추가된 문장</h4>");
+		});
+	});
+</script>
+</head>
+<body>
+	<div>
+		<h1>첫번째 문장</h1>
+		<h2>두번째 문장</h2>
+	</div>
+	<h2>색상표</h2>
+	<ol>
+		<li>빨강</li>
+		<li>파랑</li>
+		<li>초록</li>
+	</ol>
+	<button id = "btn01">문장추가</button>
+	<button id = "btn02">색상추가</button>
+	<button id = "btn03">본문추가</button>
+</body>
+</html>

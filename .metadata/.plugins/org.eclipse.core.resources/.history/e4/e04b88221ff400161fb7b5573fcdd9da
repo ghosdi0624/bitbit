@@ -1,0 +1,32 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<c:set var="string1" value="This is first String."/>
+<c:set var="string2" value="This is second String." />
+
+<c:forEach var="i" begin="100" end="101">
+	<c:set var="index" value="${ i }"></c:set>
+</c:forEach>
+
+<p>Length of String (1) : ${fn:length('하이하이')}</p>
+<p>Length of String (2) : ${fn:length(string2)}</p>
+
+<c:set var="length" value="${fn:length('하이하이')}" />
+<c:set var="length1" value="${fn:length(index)"></c:set>
+
+${ length }입니다.
+${ length1 }입니다..
+
+		
+</body>
+</html>

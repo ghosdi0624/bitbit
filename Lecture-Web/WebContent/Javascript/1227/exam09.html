@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var array = [ 10, 'A', 2.34, "ABC", true, null, '!' ];
+
+	for (var i = 0; i < array.length; i++) {
+		document.write(array[i] + '<br/>');
+	}
+
+	array[7] = "add";
+
+	for (var i = 0; i < array.length; i++) {
+		document.write(array[i] + '<br/>');
+	}
+	document.write(array.length+'<br/>');
+	
+	array[10] = "and";
+	document.write(array);
+	
+	array.push("추가..");
+	document.write(array+"<br/>");
+	
+	var temp = array.pop();
+	document.write(temp+"<br/>");
+	
+	var str = "hello world";
+	document.write(str.length+"<br/>");
+	
+	var arrays = new Array();
+	document.write('arrays의 원소 갯수 : '+ arrays.length+"<br/>");
+	
+	var arrays = new Array('A', 100, true);
+	document.write('arrays의 원소 갯수 : '+ arrays.length+"<br/>");
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

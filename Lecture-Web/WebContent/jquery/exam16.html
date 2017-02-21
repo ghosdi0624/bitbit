@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src = "js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+/* 		var p = document.getElementsByTagName('p');
+		alert(p[0].innerHTML);
+		alert(p[0].innerText); */
+		
+		var html = $('#test').html();
+		var text = $('#test').text();
+		alert("추출된 html : "+html+'\n'+"추출된 text : "+text+'\n');
+		
+		var attr = $('a').attr('href');
+		alert("추출된 주소는 : " + attr + '\n');
+		
+		$(':button').click(function(){
+			var name = $('#name').val();
+			alert("입력된 이름 : "+ name + '\n');
+		});
+	});
+	
+</script>
+</head>
+<body>
+	<a href="http://www.naver.com">네이버</a>
+	<p id = "test">내 이름은 <b>홍길동</b>이고 별명은 <i>의적</i>이다</p>
+	<p>내 이름은 <b>홍길순</b>이고 별명은 <i>의적2</i>이다</p>
+	이름 : <input type = "text" id = "name" size = "20" />
+	<button>입력완료</button>
+</body>
+</html>

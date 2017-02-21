@@ -1,0 +1,63 @@
+package kr.co.bit.hotel;
+
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import kr.co.bit.company.vo.CompanyFacilitiesVO;
+import kr.co.bit.company.vo.CompanyFileVO;
+import kr.co.bit.company.vo.CompanyInfoVO;
+import kr.co.bit.hotel.service.HotelService;
+import kr.co.bit.hotel.vo.RoomVO;
+import kr.co.bit.member.vo.reserve.MemberReserveVO;
+
+@Controller
+public class HotelController {
+	
+	@Autowired
+	private HotelService service;
+	
+	@RequestMapping(value="/hotel/searchhotel.do", method=RequestMethod.POST)
+	public String searchHotel(HttpServletRequest request, Model model){
+		
+		String checkIn = request.getParameter("checkIn");
+		String checkOut = request.getParameter("checkOut");
+		
+//		MemberReserveVO checkList = service.checkList(checkIn, checkOut); 
+		List<CompanyInfoVO> list = service.searchHotel();
+		List<RoomVO> roomList = service.minPrice();
+		
+//		System.out.println(checkList.getHotelName()+" / " +checkList.getPersonNum());
+		
+		model.addAttribute("list", list);
+		model.addAttribute("roomList", roomList);
+//		model.addAttribute("checkList", checkList);
+		
+		return "hotel/searchhotel";
+	}
+	
+	@RequestMapping("/hotel/detail.do")
+	public String hotelDetail(@RequestParam("name") String name, Model model){
+		
+		CompanyFacilitiesVO companyFacilitiesVO = service.hotelDatail(name);
+		CompanyInfoVO companyInfoVO = service.getIntro(name);
+		List<CompanyFileVO> list = service.getFile(name);
+		
+		String introduce = companyInfoVO.getIntroduce().replace("\r\n","<br/>");
+		companyInfoVO.setIntroduce(introduce);
+		
+		model.addAttribute("facilities", companyFacilitiesVO);
+		model.addAttribute("companyInfo", companyInfoVO);
+		model.addAttribute("list", list);
+		
+		return "hotel/detail";
+	}
+
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src = "js/jquery-3.1.1.min.js"></script>
+<script>
+	$(document).ready(function (){
+//		$('h1').hide(); //-->h1태그 모두 지우기	// $('h1') => document.querySelectorAll('h1') 과 같은의미
+//		$('#id1').hide(); // -->id가 id1인것 지우기
+//		$('.id1').hide(); // -->class가 id1인것 지우기
+//		$('h1.id1').hide(); // -->h1태그의 클래스가 id1인 것을 지우기
+//		$('*').hide();		// -->전부 지우기
+//		$('h1:first').hide(); // --> h1태그 중 제일 처음꺼 지우기
+		$('h1:last').hide();  // --> h1태그 중 마지막꺼 지우기
+	});
+</script>
+</head>
+<body>
+	<h1 id = "id1">Hello</h1>
+	<h1>Hi</h1>
+	<h1 >안녕</h1>
+	<hr/>
+	<h1 class = "id1">Hello</h1>
+	<h2 class = "id1">Hi</h2>
+	<h1>안녕</h1>
+</body>
+</html>

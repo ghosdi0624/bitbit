@@ -1,0 +1,29 @@
+package kr.co.bit.reserve.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import kr.co.bit.util.ConnectionFactory;
+
+public class ReserveDAO {
+
+	public void insertReserve(String time, int roomNo, String people, String id) {
+		
+		int pNum = Integer.parseInt(people);
+		StringBuilder sql = new StringBuilder();
+		sql.append("");
+		
+		try(
+			Connection conn = new ConnectionFactory().getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql.toString());
+				
+			)
+		{
+			
+			
+		} catch(Exception e){
+			e.getMessage();
+		}
+	}
+	
+}

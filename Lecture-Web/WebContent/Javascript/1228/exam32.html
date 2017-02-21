@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var states = new Array();
+	
+	states['서초'] = '서울특별시';
+	states['용인'] = '경기도';
+	states['동래'] = '부산광역시';
+	
+	for(var i in states){
+		document.write(i+' : '+states[i]+'<br/>');
+	}
+	
+	var person = {};
+	person['name'] = '홍길동';
+	person['phone'] = '010-1111-2222';
+	person.addr = '서울시 서초구 서초동';
+	
+	for(var key in person){
+		document.write(key + ' : ' + person[key] + '<br/>');
+	}
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var num = '';
+	function numClick(click) {
+		num += click;
+		document.inputForm.text.value = num;
+	}
+
+	function sumClick() {
+		if (num == '')
+			document.inputForm.text.value = 0;
+		else
+			document.inputForm.text.value = eval(num);
+		num = '';
+	}
+
+	function clearClick() {
+		document.inputForm.text.value = '';
+		num = '';
+	}
+</script>
+</head>
+<body>
+	<form name="inputForm">
+		<table border="1">
+			<tr>
+				<td colspan="4"><input type="text" name="text"
+					readonly="readonly" size="15" style="text-align: right"></td>
+			</tr>
+			<tr>
+				<td><input type="button" value="7" onclick="numClick(this.value)"
+					style="width: 20pt; height: 15pt"></td>
+				<td><input type="button" value="8" onclick="numClick(this.value)"
+					style="width: 20pt; height: 15pt"></td>
+				<td><input type="button" value="9" onclick="numClick(this.value)"
+					style="width: 20pt; height: 15pt"></td>
+				<td><input type="button" value="/" onclick="numClick('/')"
+					style="width: 20pt; height: 15pt"></td>
+			</tr>
+			<tr>
+				<td><input type="button" value="4" onclick="numClick(4)"
+					style="width: 20pt; height: 15pt"></td>
+				<td><input type="button" value="5" onclick="numClick(5)"
+					style="width: 20pt; height: 15pt"></td>
+				<td><input type="button" value="6" onclick="numClick(6)"
+					style="width: 20pt; height: 15pt"></td>
+				<td><input type="button" value="*" onclick="numClick('*')"
+					style="width: 20pt; height: 15pt"></td>
+			</tr>
+			<tr>
+				<td><input type="button" value="1" onclick="numClick(1)"
+					style="width: 20pt; height: 15pt"></td>
+				<td><input type="button" value="2" onclick="numClick(2)"
+					style="width: 20pt; height: 15pt"></td>
+				<td><input type="button" value="3" onclick="numClick(3)"
+					style="width: 20pt; height: 15pt"></td>
+				<td><input type="button" value="-" onclick="numClick('-')"
+					style="width: 20pt; height: 15pt"></td>
+			</tr>
+			<tr>
+				<td><input type="button" value="0" onclick="numClick(0)"
+					style="width: 20pt; height: 15pt"></td>
+				<td><input type="button" value="." onclick="numClick('.')"
+					style="width: 20pt; height: 15pt"></td>
+				<td><input type="button" value="+" onclick="numClick('+')"
+					style="width: 20pt; height: 15pt"></td>
+				<td><input type="button" value="%" onclick="numClick('%')"
+					style="width: 20pt; height: 15pt"></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="button" value="="
+					onclick="sumClick()" style="width: 100%; height: 15pt"></td>
+				<td colspan="2"><input type="button" value="clear"
+					onclick="clearClick()" style="width: 100%; height: 15pt"></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
