@@ -17,7 +17,6 @@
 <c:set var="num"><fmt:formatNumber pattern="00">1</fmt:formatNumber></c:set>
 		
 	num : ${ num }
-	수정했습니다.
-	한번더 수정했습니다.
+	추가해보기
 </body>
 </html>
