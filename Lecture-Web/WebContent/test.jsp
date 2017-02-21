@@ -17,8 +17,6 @@
 <c:set var="num"><fmt:formatNumber pattern="00">1</fmt:formatNumber></c:set>
 		
 	num : ${ num }
-	추가해보기
-	2단계 테스트
-	3단계 테스트
+
 </body>
 </html>
