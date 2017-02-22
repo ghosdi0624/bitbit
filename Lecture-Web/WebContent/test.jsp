@@ -17,6 +17,7 @@
 <c:set var="num"><fmt:formatNumber pattern="00">1</fmt:formatNumber></c:set>
 		
 	num : ${ num }
+	하이하이
 
 </body>
 </html>
