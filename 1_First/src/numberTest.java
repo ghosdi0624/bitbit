@@ -31,6 +31,7 @@ public class numberTest {
 		}
 		
 		System.out.println(count);
+		// 경태 봐바라~~~~~
 		
 	}
 
