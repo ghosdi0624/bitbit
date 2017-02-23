@@ -3,7 +3,7 @@ public class numberTest {
 
 	public static void main(String[] args) {
 		
-		// 1~10000±îÁö ¼ıÀÚÁß 8ÀÌ ¸î¹ø µé¾î°¡´ÂÁö
+		// 1~10000Â±Ã®ÃÃ¶ Â¼Ã½Ã€ÃšÃÃŸ 8Ã€ÃŒ Â¸Ã®Â¹Ã¸ ÂµÃ©Â¾Ã®Â°Â¡Â´Ã‚ÃÃ¶
 		
 		int count = 0;
 		
@@ -31,9 +31,10 @@ public class numberTest {
 		}
 		
 		System.out.println(count);
-		// °æÅÂ ºÁ¹Ù¶ó~~~~~
+		System.out.println("í•˜ì´ìš©");
+		// Â°Ã¦Ã…Ã‚ ÂºÃÂ¹Ã™Â¶Ã³~~~~~
 		// change Name
-		// ¤»¤»¤»¤»¤»
+		// Â¤Â»Â¤Â»Â¤Â»Â¤Â»Â¤Â»
 		
 	}
 
